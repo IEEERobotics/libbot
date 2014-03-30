@@ -1,3 +1,7 @@
 *.sw[mnop]
 *.pyc
 *~
+
+# Related to pip distribution
+dist/
+libbot.egg-info/
