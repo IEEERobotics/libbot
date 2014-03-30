@@ -4,4 +4,5 @@
 
 # Related to pip distribution
 dist/
+build/
 libbot.egg-info/
