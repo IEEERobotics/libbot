@@ -2,11 +2,11 @@
 
 from os import getcwd, path
 import logging.handlers
+import sys
 
 try:
     import yaml
 except ImportError as err:
-    import sys
     sys.stderr.write("ERROR: {}. Try installing python-yaml.\n".format(err))
     raise
 
