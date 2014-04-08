@@ -29,6 +29,7 @@ class Enum(tuple):
     def toString(self, value):
         return self[value]
 
+
 def get_config(config_file=None):
     """Load and return configuration options.
 
@@ -55,10 +56,13 @@ def get_config(config_file=None):
     if config_file == _loaded_config_file:
         return _config
 
-    with open(config_file) as config_fd:
-        _config = yaml.load(config_fd)
-        _loaded_config_file = config_file
-        return _config
+    try:
+        with open(config_file) as config_fd:
+            _config = yaml.load(config_fd)
+            _loaded_config_file = config_file
+            return _config
+    except FileNotFoundError:
+        sys.stderr.write("{} not found".format(config_file))
 
 
 def write_config(new_config):
